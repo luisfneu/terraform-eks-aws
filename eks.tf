@@ -3,7 +3,7 @@ module "eks" {
   version = "~> 20.31"
   
   cluster_name                   = local.name
-  cluster_version = "1.31"
+  cluster_version = "1.32"
   cluster_endpoint_public_access = true
 
   cluster_addons = {
@@ -36,11 +36,11 @@ module "eks" {
       max_size     = 2
       desired_size = 1
 
-      instance_types = ["t3.large"]
+      instance_types = ["t3a.small"]
       capacity_type  = "SPOT"
 
       tags = {
-        ExtraTag = "helloworld"
+        ExtraTag = "eks"
       }
     }
   }
