@@ -32,11 +32,11 @@ module "eks" {
       max_size     = 2
       desired_size = 1
 
-      instance_types = ["t3a.small"]
+      instance_types = ["t3.large"]
       capacity_type  = "SPOT"
 
       tags = {
-        ExtraTag = "eks"
+        ExtraTag = "eks-luisneu"
       }
     }
   }
