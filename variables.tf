@@ -1,10 +1,10 @@
 variable "aws_region" {
-  default = "us-west-2"
+  default = "us-east-1"
 }
 variable "aws_aza" {
-  default = "us-west-2a"
+  default = "us-east-1a"
 }
 
 variable "aws_azb" {
-  default = "us-west-2b"
+  default = "us-east-1b"
 }
