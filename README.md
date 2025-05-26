@@ -23,3 +23,25 @@ Antes de usar o módulo, você precisará:
 - Kubectl para testar o acesso ao cluster
 
 
+### Variáveis importantes
+
+| Nome                       | Descrição                                              |
+|---------------------------|--------------------------------------------------------|
+| `cluster_name`            | Nome do seu cluster EKS                                |
+| `cluster_version`         | Versão Kubernetes (ex: `1.29`)                         |
+| `vpc_id` / `subnet_ids`   | VPC e sub-redes onde o cluster será criado            |
+| `eks_managed_node_groups` | Mapa para definir node groups gerenciados             |
+| `cluster_addons`          | Permite instalar addons do EKS, ativados com `most_recent = true` |
+
+
+
+## 🧪 Testes e Validação
+
+Após aplicar (`terraform apply`), configure seu `kubectl`:
+
+```bash
+aws eks --region $(terraform output -raw aws_region) \
+  update-kubeconfig --name $(terraform output -raw cluster_name)
+
+kubectl get nodes
+```
